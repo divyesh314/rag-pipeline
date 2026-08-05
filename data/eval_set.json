@@ -1,0 +1,44 @@
+[
+  {
+    "query": "What is the capital of France?",
+    "relevant_doc_ids": ["doc_paris::chunk_0"]
+  },
+  {
+    "query": "Why is Reciprocal Rank Fusion used in hybrid search instead of adding scores together?",
+    "relevant_doc_ids": ["doc_hybrid_search::chunk_0"]
+  },
+  {
+    "query": "What is the difference between a bi-encoder retriever and a cross-encoder reranker?",
+    "relevant_doc_ids": ["doc_reranking::chunk_0"],
+    "relevance": {"doc_reranking::chunk_0": 2, "doc_hybrid_search::chunk_0": 1}
+  },
+  {
+    "query": "How does retrieval augmented generation reduce hallucination?",
+    "relevant_doc_ids": ["doc_rag_systems::chunk_0"]
+  },
+  {
+    "query": "What metrics are used to evaluate whether a RAG system retrieved the right passages?",
+    "relevant_doc_ids": ["doc_rag_eval::chunk_0"]
+  },
+  {
+    "query": "How should I choose a chunk size when splitting documents for retrieval?",
+    "relevant_doc_ids": ["doc_chunking::chunk_0"]
+  },
+  {
+    "query": "What does approximate nearest neighbor search trade off?",
+    "relevant_doc_ids": ["doc_vector_db::chunk_0"]
+  },
+  {
+    "query": "Why can dense embeddings match text that shares no exact words?",
+    "relevant_doc_ids": ["doc_embeddings::chunk_0"]
+  },
+  {
+    "query": "What Python libraries are commonly used to build machine learning pipelines?",
+    "relevant_doc_ids": ["doc_python::chunk_0"],
+    "relevance": {"doc_python::chunk_0": 2, "doc_ml_basics::chunk_0": 1}
+  },
+  {
+    "query": "What is the difference between supervised and unsupervised learning?",
+    "relevant_doc_ids": ["doc_ml_basics::chunk_0"]
+  }
+]

@@ -1,0 +1,10 @@
+# Install these to swap in real semantic embeddings, a real cross-encoder
+# reranker, and real LLM generation. Everything in this project still runs
+# without them (falls back to TF-IDF / lexical overlap / a mock LLM), but
+# for production quality retrieval and answers, install this file:
+#
+#   pip install -r requirements.txt -r requirements-full.txt
+
+-r requirements.txt
+sentence-transformers>=2.2
+anthropic>=0.40

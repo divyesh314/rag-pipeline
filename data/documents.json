@@ -1,0 +1,52 @@
+[
+  {
+    "id": "doc_paris",
+    "text": "Paris is the capital and most populous city of France. It sits on the Seine River in the north-central part of the country. The city is known worldwide for the Eiffel Tower, completed in 1889 for the World's Fair, and for museums such as the Louvre, home to the Mona Lisa. Paris has been a major European center of finance, fashion, and the arts for centuries.",
+    "metadata": {"topic": "geography"}
+  },
+  {
+    "id": "doc_python",
+    "text": "Python is a high-level, general-purpose programming language known for readable syntax and a large standard library. It is widely used in data science, web development, automation, and artificial intelligence. Libraries such as NumPy, pandas, and scikit-learn make Python a common choice for building machine learning pipelines. Its dynamic typing and interpreted nature make it fast to prototype in, though it is typically slower than compiled languages at runtime.",
+    "metadata": {"topic": "programming"}
+  },
+  {
+    "id": "doc_ml_basics",
+    "text": "Machine learning is a subfield of artificial intelligence in which models learn patterns from data rather than following explicitly programmed rules. Supervised learning trains a model on labeled examples, unsupervised learning finds structure in unlabeled data, and reinforcement learning trains an agent through trial and error using rewards. A model's ability to generalize to unseen data, rather than memorize the training set, is the central challenge of the field.",
+    "metadata": {"topic": "ml"}
+  },
+  {
+    "id": "doc_hybrid_search",
+    "text": "Hybrid search combines lexical (keyword) search, such as BM25, with dense vector (semantic) search over embeddings. Keyword search excels at exact matches, rare terms, and identifiers, while semantic search finds conceptually related content even when the wording differs. Production systems like Elasticsearch and Weaviate fuse both result lists, commonly using Reciprocal Rank Fusion, so neither the lexical nor semantic signal is uniformly trusted or discarded.",
+    "metadata": {"topic": "search"}
+  },
+  {
+    "id": "doc_reranking",
+    "text": "Reranking is a second-stage relevance scoring step applied to the top candidates returned by an initial retriever. While the first-stage retriever (e.g. BM25 or a bi-encoder) must score many documents quickly, a reranker such as a cross-encoder can afford to be slower and more accurate because it only scores a small candidate set, typically 20 to 100 items, and can jointly attend to the query and each candidate together.",
+    "metadata": {"topic": "search"}
+  },
+  {
+    "id": "doc_rag_systems",
+    "text": "Retrieval-Augmented Generation (RAG) pairs a retrieval system with a large language model. Instead of relying solely on knowledge baked into the model's parameters at training time, the system retrieves relevant passages at query time and includes them in the prompt as context. This reduces hallucination on knowledge the model wasn't trained on or has forgotten, and allows answers to cite specific sources. RAG is widely used for enterprise search, customer support assistants, and legal or medical document question answering.",
+    "metadata": {"topic": "rag"}
+  },
+  {
+    "id": "doc_rag_eval",
+    "text": "Evaluating a RAG system requires separating retrieval quality from generation quality. Retrieval metrics such as Recall@K, Precision@K, Mean Reciprocal Rank, and normalized Discounted Cumulative Gain measure whether the right passages were found and ranked highly. Generation metrics such as faithfulness (does the answer only use claims supported by the retrieved context) and answer relevance are typically judged separately, often using another LLM as a grader, since exact-match metrics don't work well for free-form text.",
+    "metadata": {"topic": "rag"}
+  },
+  {
+    "id": "doc_chunking",
+    "text": "Chunking splits long documents into smaller passages before indexing them for retrieval. Chunk size involves a tradeoff: chunks that are too large dilute relevance signal and waste context window space, while chunks that are too small lose surrounding context needed to make sense of a passage. A common approach uses a few hundred tokens per chunk with a small overlap between consecutive chunks so that ideas spanning a chunk boundary aren't cut in half.",
+    "metadata": {"topic": "rag"}
+  },
+  {
+    "id": "doc_vector_db",
+    "text": "Vector databases such as FAISS, Chroma, Pinecone, and Weaviate store embeddings and support approximate nearest neighbor search, which finds vectors close to a query vector without exhaustively comparing against every stored vector. This tradeoff of a small amount of recall for large gains in query speed is what makes semantic search over millions or billions of documents practical.",
+    "metadata": {"topic": "search"}
+  },
+  {
+    "id": "doc_embeddings",
+    "text": "Text embeddings are dense numerical vectors produced by a neural network such that semantically similar text maps to nearby points in vector space. Modern embedding models are trained with contrastive objectives on large pairs of similar and dissimilar text. Unlike sparse representations such as TF-IDF, which only capture exact word overlap, dense embeddings can match a query and a passage that express the same idea using entirely different words.",
+    "metadata": {"topic": "search"}
+  }
+]
