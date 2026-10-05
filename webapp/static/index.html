@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG Pipeline Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Hybrid RAG pipeline</div>
+    <h1>Ask the documents</h1>
+    <p class="lede">This assistant only knows what's on the shelf below. It searches those documents for your question, picks the best passages, and writes an answer that cites them.</p>
+  </header>
+
+  <div class="banner" id="mode-banner" hidden></div>
+
+  <section aria-labelledby="shelf-h">
+    <div class="sec-head">
+      <h2 id="shelf-h">Topics in the library</h2>
+      <span class="hint" id="shelf-count">Loading…</span>
+    </div>
+    <div class="shelf" id="shelf">
+      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+    </div>
+  </section>
+
+  <form class="desk" id="desk" autocomplete="off">
+    <label class="q" for="question">Your question</label>
+    <textarea id="question" name="question" maxlength="500" placeholder="e.g. Why do RAG systems split documents into chunks?"></textarea>
+    <div class="row">
+      <ol class="steps" id="steps" aria-label="Pipeline progress">
+        <li>1 · Search</li><li>2 · Rerank</li><li>3 · Answer</li>
+      </ol>
+      <button type="submit" class="btn" id="submit">Get answer</button>
+    </div>
+    <div class="mode" id="mode"></div>
+  </form>
+
+  <section class="answer" aria-live="polite" aria-labelledby="ans-h">
+    <div class="answer-head">
+      <span class="eyebrow" id="ans-h">Answer</span>
+      <div class="asked" id="asked"></div>
+    </div>
+    <div class="answer-body empty" id="answer">Pick a topic above or type a question, then press Get answer.</div>
+    <div class="sources" id="sources-wrap" hidden>
+      <span class="eyebrow">Sources used</span>
+      <div id="sources" style="display:flex;flex-direction:column;gap:12px"></div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>

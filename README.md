@@ -86,6 +86,32 @@ pip install pytest
 pytest tests/ -v
 ```
 
+## Web app
+
+A browser UI on top of the same pipeline: topic cards for every document
+in the corpus, a question box, and an answer panel that shows the cited
+passages with their keyword and semantic ranks.
+
+```bash
+pip install -r requirements.txt -r requirements-web.txt
+uvicorn webapp.server:app --reload
+# open http://127.0.0.1:8000
+```
+
+The server builds one `RAGPipeline` at startup, so it uses whatever
+embedder, reranker and LLM are available, exactly like the CLI demo. With
+no `ANTHROPIC_API_KEY` it runs in demo mode and the UI says so; set the key
+(and `pip install -r requirements-full.txt`) for real Claude answers.
+
+| Endpoint | What it returns |
+|---|---|
+| `GET /api/status` | document/chunk counts and which embedder, reranker and LLM are active |
+| `GET /api/topics` | one entry per document: title, topic, preview, sample question from the eval set |
+| `POST /api/ask` | `{"question": "...", "top_k": 3}` → answer, numbered sources, timing |
+
+Point the app at your own corpus with `RAG_DOCUMENTS=path/to/docs.json`
+(same `{id, text, metadata}` format). Interactive API docs are at `/docs`.
+
 ## Using it as a library
 
 ```python
@@ -143,6 +169,11 @@ rag-pipeline/
 ├── data/
 │   ├── documents.json    # sample corpus
 │   └── eval_set.json     # sample eval set with relevance judgments
+├── webapp/
+│   ├── server.py         # FastAPI app: /api/status, /api/topics, /api/ask
+│   └── static/           # index.html, app.css, app.js
 ├── examples/run_demo.py
-└── tests/test_pipeline.py
+└── tests/
+    ├── test_pipeline.py
+    └── test_webapp.py
 ```
